@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  compile: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout proyect
+        uses: actions/checkout@v2
+      - name: Set up nodejs
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 12
+      - name: install jest
+        run: npm i jest && npm i mocha
+      - name: testing
+        run: npm test getData.test.js
