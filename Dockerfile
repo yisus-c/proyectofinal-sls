@@ -3,9 +3,9 @@ FROM node:12
 WORKDIR /app
 
 COPY package*.json ./
-
-RUN npm install
+RUN npm install serverless@2.71.0
+RUN npm install --dev
 
 COPY . .
 
-CMD [ "serverless", "offline"]
+CMD [ "npm", "start" ]
